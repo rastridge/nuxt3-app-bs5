@@ -1,7 +1,6 @@
 export default defineNuxtConfig({
 	ssr: false,
 	modules: ['@formkit/nuxt', 'bootstrap-vue-3/nuxt'],
-
 	css: ['bootstrap/dist/css/bootstrap.css'],
 
 	runtimeConfig: {
