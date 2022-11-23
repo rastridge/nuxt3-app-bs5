@@ -1,6 +1,5 @@
 <template>
 	<div class="root">
-		fghfghgfhfghfdgh ertwerwerwhy
 		<img src="/bbmontreal.jpeg" class="rounded img-fluid" />
 		<img src="/sam.jpeg" class="rounded img-fluid" />
 		<img src="/zach.jpeg" class="rounded img-fluid" />
