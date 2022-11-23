@@ -5,7 +5,7 @@
 				class="navbar navbar-expand-md bg-primary navbar-dark justify-content-center"
 			>
 				<!-- Brand -->
-				<a class="navbar-brand" href="#">Nuxt 3+Bootstrap5+Bootswatch</a>
+				<a class="navbar-brand" href="#">Nuxt 3 + Bootstrap5</a>
 
 				<!-- Links -->
 				<ul class="navbar-nav">
