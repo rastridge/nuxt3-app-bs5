@@ -55,31 +55,29 @@
 </script>
 
 <template>
-	<div class="root">
-		<p>pending= {{ pending }}</p>
-		<p>error= {{ error }}</p>
-		<div v-if="pending">Loading ...</div>
-		<div v-if="error">Error ...</div>
-		<!-- <p>accountData {{ accountData }}</p> -->
-		<div v-for="item in accounts">
-			<h3>{{ item.member_firstname }} {{ item.member_lastname }}</h3>
-			<p>{{ item.account_email }}</p>
-			<p>{{ item.dt }}</p>
-			<p>
-				<nuxt-link
-					class="btn btn-outline-primary"
-					:to="`/admin/accounts/${item.account_id}`"
-					>Edit</nuxt-link
-				>
-				<button
-					type="button"
-					class="btn btn-outline-danger"
-					@click="deleteItem(item.account_id)"
-				>
-					Delete
-				</button>
-			</p>
-		</div>
+	<div class="root text-start table-responsive">
+		<table class="table table-borderless">
+			<tbody>
+				<tr v-for="item in accounts">
+					<td>{{ item.member_firstname }} {{ item.member_lastname }}</td>
+					<td>{{ item.account_email }}</td>
+					<td>
+						<nuxt-link
+							class="btn btn-outline-primary btn-sm"
+							:to="`/admin/accounts/${item.account_id}`"
+							>Edit</nuxt-link
+						>
+						<button
+							type="button"
+							class="btn btn-outline-danger btn-sm ms-2"
+							@click="deleteItem(item.account_id)"
+						>
+							Delete
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </template>
 

@@ -25,7 +25,7 @@
 				firebaseapikey: runtimeConfig.apiSecret,
 			},
 		})
-		navigateTo('/admin/accounts')
+		navigate('/admin/accounts')
 		/* 		console.log('got here1', pending)
 		if (pending) {
 			console.log('got here2', pending)
@@ -38,9 +38,10 @@
 		<Head>
 			<Title>Edit Account {{ id }}</Title>
 		</Head>
-		<div class="root">
-			<b>Edit</b>
+		<div class="text-center m-5 display-6">
+			<b>Edit Account</b>
 		</div>
+
 		<div class="root">
 			<my-form :id="id" @submitted="onSubmit" />
 		</div>

@@ -1,23 +1,16 @@
 <template>
 	<div class="container">
-		<div class="d-flex w-100 h-100 p-3 text-center mx-auto flex-column">
-			<p>X: {{ x }} Y: {{ y }}</p>
-			<p>route = {{ route.path }}</p>
-			<p>route params = {{ route.params.id }}</p>
-			<my-header />
-			<!-- <div>
-				<h6>Color mode: {{ $colorMode.value }}</h6>
-				<select v-model="$colorMode.preference">
-					<option value="system">System</option>
-					<option value="light">Light</option>
-					<option value="dark">Dark</option>
-					<option value="sepia">Sepia</option>
-				</select>
-			</div> -->
+		<my-header />
+		<!-- <div class="d-flex w-100 h-100 p-3 text-center mx-auto flex-column"> -->
+		<div class="p-0 mt-3 bg-transparent" style="height: 30px"></div>
+		<div class="text-center mx-auto">
+			<div class="p-3 mt-5 shadow bg-secondary">
+				<p>X: {{ x }} Y: {{ y }}</p>
+			</div>
 
 			<slot />
-			<my-footer />
 		</div>
+		<my-footer />
 	</div>
 </template>
 
@@ -30,27 +23,12 @@
 </script>
 
 <style>
-	/* body {
-		background-color: #fff;
-		color: rgba(0, 0, 0, 0.8);
-		text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-		box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
-	}
-	.dark-mode body {
-		background-color: #091a28;
-		color: #ebf4f1;
-	}
-	.sepia-mode body {
-		background-color: #f1e7d0;
-		color: #433422;
-	}
-
-	 */
 	body {
 		background-color: rgb(183, 134, 134);
 	}
+
 	.root {
-		max-width: 600px;
+		max-width: 70%;
 		margin: 0 auto;
 		padding: 2rem;
 		margin-top: 3rem;

@@ -23,9 +23,10 @@
 		<Head>
 			<Title>Add Account</Title>
 		</Head>
-		<div class="root">
-			<b>Add</b>
+		<div class="text-center m-5 display-6">
+			<b>Add Account</b>
 		</div>
+
 		<div class="root">
 			<my-form @submitted="onSubmit" />
 		</div>

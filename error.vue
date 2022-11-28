@@ -1,10 +1,10 @@
 <template>
 	<div class="container py-4">
 		<div class="row">
-			<div class="h-100 p-5 text-white bg-dark rounded-2">
-				<p>error.statusMessage= {{ error.statusMessage }}</p>
-				<p>error.statusCode= {{ error.statusCode }}</p>
-				<button class="btn btn-primary btn-lg" @click="handleError">
+			<div class="h-100 p-5 text-center text-white bg-dark rounded-5">
+				<p>statusMessage <br />{{ error.statusMessage }}</p>
+				<p>statusCode <br />{{ error.statusCode }}</p>
+				<button class="btn btn-primary btn-md" @click="handleError">
 					Clear errors
 				</button>
 			</div>

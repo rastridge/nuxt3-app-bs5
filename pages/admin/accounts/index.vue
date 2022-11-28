@@ -4,11 +4,13 @@
 			<Title>Accounts List</Title>
 		</Head>
 
-		<div class="root">
+		<div class="text-center m-5 display-6">
 			<b>Account List</b>
 		</div>
-		<div class="root">
-			<nuxt-link class="nav-link" to="/admin/accounts/add">Add</nuxt-link>
+		<div class="text-center m-5">
+			<nuxt-link class="btn btn-primary" to="/admin/accounts/add"
+				>Add Account</nuxt-link
+			>
 		</div>
 
 		<div>
@@ -17,5 +19,5 @@
 	</div>
 </template>
 <script setup>
-	clearNuxtData()
+	// clearNuxtData()
 </script>

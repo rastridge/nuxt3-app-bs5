@@ -1,7 +1,12 @@
 export default defineNuxtConfig({
 	ssr: false,
 	modules: ['@formkit/nuxt', 'bootstrap-vue-3/nuxt'],
-	css: ['bootstrap/dist/css/bootstrap.css'],
+	css: [
+		'bootstrap/dist/css/bootstrap.css',
+		'primevue/resources/themes/saga-blue/theme.css',
+		'primevue/resources/primevue.css',
+		'primeicons/primeicons.css',
+	],
 
 	runtimeConfig: {
 		// The private keys which are only
@@ -24,10 +29,10 @@ export default defineNuxtConfig({
 	// 	viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
 	// 	title: 'BootStrap5',
 	// },
-	app: {
-		pageTransition: {
-			name: 'page',
-			mode: 'out-in',
-		},
+	/*
+	 */
+
+	build: {
+		transpile: ['primevue'],
 	},
 })
