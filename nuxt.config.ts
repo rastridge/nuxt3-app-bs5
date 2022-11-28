@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
 	ssr: false,
-	modules: ['@formkit/nuxt', 'bootstrap-vue-3/nuxt'],
+	modules: ['@formkit/nuxt', 'bootstrap-vue-3/nuxt', 'nuxt-icon'],
 	css: [
 		'bootstrap/dist/css/bootstrap.css',
 		'primevue/resources/themes/saga-blue/theme.css',

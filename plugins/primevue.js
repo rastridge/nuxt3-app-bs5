@@ -1,7 +1,7 @@
 import { defineNuxtPlugin } from '#app'
 import PrimeVue from 'primevue/config'
-import AutoComplete from 'primevue/autocomplete'
-import Editor from 'primevue/editor'
+// import AutoComplete from 'primevue/autocomplete'
+// import Editor from 'primevue/editor'
 // import Calendar from 'primevue/calendar'
 // import Button from 'primevue/button'
 // import Card from 'primevue/card'
@@ -18,9 +18,9 @@ import Editor from 'primevue/editor'
 
 export default defineNuxtPlugin((nuxtApp) => {
 	nuxtApp.vueApp.use(PrimeVue, { ripple: true })
-	nuxtApp.vueApp.component('AutoComplete', AutoComplete)
+	// nuxtApp.vueApp.component('AutoComplete', AutoComplete)
 	// nuxtApp.vueApp.component('Calendar', Calendar)
-	nuxtApp.vueApp.component('Editor', Editor)
+	// nuxtApp.vueApp.component('Editor', Editor)
 	// nuxtApp.vueApp.component('Button', Button)
 	// nuxtApp.vueApp.component('Card', Card)
 	// nuxtApp.vueApp.component('Column', Column)

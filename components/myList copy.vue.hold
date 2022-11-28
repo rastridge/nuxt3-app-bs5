@@ -1,0 +1,82 @@
+<script setup>
+	// import { accountService } from '@/services'
+	const runtimeConfig = useRuntimeConfig()
+	// let accounts = reactive([])
+
+	/* 	accountService.getAll().then(
+		(data) => {
+			accounts.value = data
+		},
+		(error) => {
+			error.value = error
+		}
+	) */
+	const {
+		data: accounts,
+		pending,
+		error,
+		refresh,
+	} = await useFetch('/accounts/getall', {
+		initialCache: false,
+		method: 'get',
+		headers: {
+			firebaseapikey: runtimeConfig.apiSecret,
+		},
+	})
+
+	const deleteFromDB = async (itemId) => {
+		const { pending, error, refresh } = await useFetch(`/accounts/${itemId}`, {
+			method: 'delete',
+			headers: {
+				firebaseapikey: runtimeConfig.apiSecret,
+			},
+		})
+	}
+	const checkId = (item, itemId) => {
+		// console.log('in checkId id = ', item.account_id !== itemId)
+		return item.account_id !== itemId
+	}
+	const deleteFromBrowser = (itemId) => {
+		console.log('mylist deleteFromBrowser itemId= ', itemId)
+		console.log('mylist deleteFromBrowser accounts= ', accounts.value)
+		accounts.value = accounts.value.filter((item) => checkId(item, itemId))
+
+		// console.log('mylist deleteFromBrowser accounts after = ', accounts)
+	}
+
+	const deleteItem = (id) => {
+		const itemId = parseInt(id)
+		deleteFromDB(itemId)
+		deleteFromBrowser(itemId)
+	}
+</script>
+
+<template>
+	<div class="table-responsive">
+		<!-- accounts {{ accounts }} -->
+		<table class="table table-borderless">
+			<tbody>
+				<tr v-for="item in accounts">
+					<td>{{ item.member_firstname }} {{ item.member_lastname }}</td>
+					<td>{{ item.account_email }}</td>
+					<td>
+						<nuxt-link
+							class="btn btn-outline-primary btn-sm"
+							:to="`/admin/accounts/${item.account_id}`"
+							>Edit</nuxt-link
+						>
+						<button
+							type="button"
+							class="btn btn-outline-danger btn-sm ms-2"
+							@click="deleteItem(item.account_id)"
+						>
+							Delete
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</template>
+
+<style scoped></style>

@@ -1,17 +1,18 @@
 <template>
-	<div class="container">
-		<my-header />
-		<!-- <div class="d-flex w-100 h-100 p-3 text-center mx-auto flex-column"> -->
-		<div class="p-0 mt-3 bg-transparent" style="height: 30px"></div>
+	<my-header />
+	<!-- spacer -->
+	<div class="p-0 mt-3 bg-transparent" style="height: 30px"></div>
+	<!-- <div class="d-flex w-100 h-100 p-3 text-center mx-auto flex-column"> -->
+	<div class="root">
 		<div class="text-center mx-auto">
 			<div class="p-3 mt-5 shadow bg-secondary">
 				<p>X: {{ x }} Y: {{ y }}</p>
 			</div>
-
-			<slot />
 		</div>
-		<my-footer />
+
+		<slot />
 	</div>
+	<my-footer />
 </template>
 
 <script setup>
@@ -30,8 +31,8 @@
 	.root {
 		max-width: 70%;
 		margin: 0 auto;
-		padding: 2rem;
-		margin-top: 3rem;
+		padding: 1rem;
+		margin-top: 1rem;
 		border: solid thick green;
 		border-radius: 20px;
 		background-color: rgba(245, 245, 245, 0.528);

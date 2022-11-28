@@ -7,6 +7,7 @@
 </template>
 
 <script setup>
+	import Editor from 'primevue/editor'
 	const value1 = ref(
 		'<div>Welcome to PrimeVue <b>Editor</b></div><div><br></div>'
 	)
