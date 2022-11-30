@@ -7,28 +7,28 @@
 
 	const handleSubmit = async function (state) {
 		const runtimeConfig = useRuntimeConfig()
-		await useFetch('/accounts/addone', {
+		await useFetch('/users/addone', {
 			method: 'post',
 			body: state,
 			headers: {
 				firebaseapikey: runtimeConfig.apiSecret,
 			},
 		})
-		navigateTo('/admin/accounts')
+		navigateTo('/admin/users')
 	}
 </script>
 
 <template>
 	<div>
 		<Head>
-			<Title>Add Account</Title>
+			<Title>Add User</Title>
 		</Head>
 		<div class="text-center m-5 display-6">
-			<b>Add Account</b>
+			<b>Add User</b>
 		</div>
 
 		<div class="root">
-			<my-accounts-form @submitted="onSubmit" />
+			<my-user-form @submitted="onSubmit" />
 		</div>
 	</div>
 </template>

@@ -22,7 +22,7 @@
 			pending,
 			error,
 			refresh,
-		} = await useFetch(`/accounts/${IdToEdit}`, {
+		} = await useFetch(`/users/${IdToEdit}`, {
 			method: 'get',
 			headers: {
 				firebaseapikey: runtimeConfig.apiSecret,
@@ -49,7 +49,7 @@
 	}
 
 	const cancelForm = () => {
-		navigateTo('/admin/accounts')
+		navigateTo('/admin/users')
 	}
 </script>
 

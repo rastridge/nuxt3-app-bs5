@@ -1,20 +1,20 @@
 <template>
 	<div>
 		<Head>
-			<Title>Accounts List</Title>
+			<Title>Admin Users List</Title>
 		</Head>
 
 		<div class="text-center m-5 display-6">
-			<b>Account List</b>
+			<b>Users List</b>
 		</div>
 		<div class="text-center m-5">
-			<nuxt-link class="btn btn-primary" to="/admin/accounts/add"
-				>Add Account</nuxt-link
+			<nuxt-link class="btn btn-primary" to="/admin/users/add"
+				>Add User</nuxt-link
 			>
 		</div>
 
 		<div>
-			<my-accounts-list />
+			<my-user-list />
 		</div>
 	</div>
 </template>

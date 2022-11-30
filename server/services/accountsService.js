@@ -1,6 +1,5 @@
 ﻿import mysql from 'mysql2/promise'
 
-const TABLE_NAME = 'inbrc_accounts_play'
 const config = useRuntimeConfig()
 
 async function doDBQuery(sql, inserts) {
@@ -28,18 +27,17 @@ export const accountsService = {
 
 async function getAll() {
 	const sql = `SELECT *
-							FROM ${TABLE_NAME}
+							FROM inbrc_accounts
 							WHERE deleted = 0
 							ORDER BY member_lastname ASC`
 
 	const accounts = await doDBQuery(sql)
-	// console.log('accounts = ', accounts)
 	return accounts
 }
 
 async function getOne(id) {
 	const sql = `SELECT *
-							FROM ${TABLE_NAME}
+							FROM inbrc_accounts
 							WHERE account_id = ?`
 	const accounts = await doDBQuery(sql, [id])
 	const account = accounts[0]
@@ -47,7 +45,7 @@ async function getOne(id) {
 }
 
 async function addOne(info) {
-	const sql = `INSERT INTO ${TABLE_NAME}
+	const sql = `INSERT INTO inbrc_accounts
 							SET
 									account_email = ?,
 									member_firstname = ?,
@@ -55,7 +53,7 @@ async function addOne(info) {
 									comment = ?,
 									created_dt = NOW(),
 									modified_dt = NOW();`
-	const { account_email, member_firstname, member_lastname, comment } = info
+	const { account_email, member_firstname, member_lastname } = info
 	const accounts = await doDBQuery(sql, [
 		account_email,
 		member_firstname,
@@ -66,52 +64,100 @@ async function addOne(info) {
 }
 
 async function editOne(info) {
-	// console.log('editOne --  info = ', info)
+	console.log('editOne --  info = ', info)
 
-	const sql = `UPDATE ${TABLE_NAME}
+	const sql = `UPDATE inbrc_accounts
 							SET
 									account_email = ?,
 									member_firstname = ?,
 									member_lastname = ?,
-									comment = ?,
+
+									member_year = ?,
+									account_addr_street = ?,
+									account_addr_street_ext = ?,
+									account_addr_city = ?,
+									account_addr_state = ?,
+									account_addr_country = ?,
+									account_addr_postal = ?,
+									account_addr_phone = ?,
+
+									member_show_phone = ?,
+									member_show_addr = ?,
+									newsletter_recipient = ?,
+									mail_recipient = ?,
+									sms_recipient = ?,
+
+									member_type_id = ?,
+									member_type2_id = ?,
+									member_admin_type_id = ?,
+									member_admin_type2_id = ?,
 									modified_dt= NOW()
 								WHERE account_id = ?;`
 	const {
 		account_email,
 		member_firstname,
 		member_lastname,
-		comment,
+
+		member_year,
+		account_addr_street,
+		account_addr_street_ext,
+		account_addr_city,
+		account_addr_state,
+		account_addr_country,
+		account_addr_postal,
+		account_addr_phone,
+
+		member_show_phone,
+		member_show_addr,
+		newsletter_recipient,
+		mail_recipient,
+		sms_recipient,
+
+		member_type_id,
+		member_type2_id,
+		member_admin_type_id,
+		member_admin_type2_id,
+
 		account_id,
 	} = info
 	const accounts = await doDBQuery(sql, [
 		account_email,
 		member_firstname,
 		member_lastname,
-		comment,
+
+		member_year,
+		account_addr_street,
+		account_addr_street_ext,
+		account_addr_city,
+		account_addr_state,
+		account_addr_country,
+		account_addr_postal,
+		account_addr_phone,
+
+		member_show_phone,
+		member_show_addr,
+		newsletter_recipient,
+		mail_recipient,
+		sms_recipient,
+
+		member_type_id,
+		member_type2_id,
+		member_admin_type_id,
+		member_admin_type2_id,
+
 		account_id,
 	])
-	console.log(
-		'on server editOne -- ',
-		account_email,
-		member_firstname,
-		member_lastname,
-		comment,
-		account_id
-	)
+
 	return accounts
 }
 
 async function deleteOne(id) {
-	console.log('deleteOne --  id = ', id)
-
-	const sql = `UPDATE ${TABLE_NAME}
+	const sql = `UPDATE inbrc_accounts
 							SET
 									deleted = '1',
 									deleted_dt= NOW()
 								WHERE account_id = ?;`
 
 	const accounts = await doDBQuery(sql, [id])
-	console.log('deleteOne -- ', id)
 	return accounts
 }
-// return accounts

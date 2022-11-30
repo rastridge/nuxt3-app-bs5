@@ -25,7 +25,6 @@
 	})
 
 	const updateAccount = (id) => {
-		console.log('id= ', id)
 		navigateTo(`/admin/accounts/${id}`)
 	}
 

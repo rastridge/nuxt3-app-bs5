@@ -18,14 +18,14 @@
 
 	const handleSubmit = async function (state) {
 		const runtimeConfig = useRuntimeConfig()
-		const { pending, error } = await useFetch('/accounts/editone', {
+		const { pending, error } = await useFetch('/users/editone', {
 			method: 'post',
 			body: state,
 			headers: {
 				firebaseapikey: runtimeConfig.apiSecret,
 			},
 		})
-		navigate('/admin/accounts')
+		navigate('/admin/users')
 		/* 		console.log('got here1', pending)
 		if (pending) {
 			console.log('got here2', pending)
@@ -36,14 +36,14 @@
 <template>
 	<div>
 		<Head>
-			<Title>Edit Account {{ id }}</Title>
+			<Title>Edit User {{ id }}</Title>
 		</Head>
 		<div class="text-center m-5 display-6">
-			<b>Edit Account</b>
+			<b>Edit User</b>
 		</div>
 
 		<div class="root">
-			<my-accounts-form :id="id" @submitted="onSubmit" />
+			<my-user-form :id="id" @submitted="onSubmit" />
 		</div>
 	</div>
 </template>

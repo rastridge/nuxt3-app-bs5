@@ -4,12 +4,6 @@
 	<div class="p-0 mt-3 bg-transparent" style="height: 30px"></div>
 	<!-- <div class="d-flex w-100 h-100 p-3 text-center mx-auto flex-column"> -->
 	<div class="root">
-		<div class="text-center mx-auto">
-			<div class="p-3 mt-5 shadow bg-secondary">
-				<p>X: {{ x }} Y: {{ y }}</p>
-			</div>
-		</div>
-
 		<slot />
 	</div>
 	<my-footer />
